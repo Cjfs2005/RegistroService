@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: RegistroService
+
+server:
+  port: 8080
+
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.hostname}:${spring.application.name}:${random.int}
+
+info:
+  app:
+    name: RegistroService
+  java:
+    version: ${java.version}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,beans,loggers,info
+  endpoint:
+    env:
+      show-values: WHEN_AUTHORIZED
+  info:
+    env:
+      enabled: true
+    java:
+      enabled: true
